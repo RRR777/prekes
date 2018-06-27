@@ -6,12 +6,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Įveskite Naują Kategoriją</span>
+                    <span class="h2">Kategorijos redagavimas</span>
                     <button onclick='location.href="{{ url('/items') }}"'
-                            type="button"
-                            class="btn btn-info float-right">
-                            Pradinis
-                    </button
+                        type="button"
+                        class="btn btn-info float-right">
+                        Pradinis
+                    </button>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -24,9 +24,10 @@
                         @include('layouts.errors')
                         <form class="needs-validation"
                             novalidate
-                            action="{{ url('/category/{category}') }}"
+                            action="{{ url('/category', $category->id) }}"
                             method="post">
                             {{ csrf_field() }}
+                            {{ method_field('PUT') }}
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServer01">
@@ -36,7 +37,7 @@
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('name') }}"
+                                        value="{{ $category->name }}"
                                         name="name"
                                         id="validationServer01"
                                         placeholder="Įveskite kategorijos pavadinimą"
@@ -46,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info ">Patvirtinti</button>
+                            <button type="submit" class="btn btn-info">Patvirtinti</button>
                         </form>
                     </div>
                 </div>

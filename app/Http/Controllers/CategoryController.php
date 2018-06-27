@@ -64,9 +64,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        $category = Category::find($category->id);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -76,9 +77,21 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|unique:categories',
+        ]);
+
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect('/category');
+    }
+
+    public function delete(Category $category)
+    {
+        return view('category.destroy', compact('category'));
     }
 
     /**
@@ -87,8 +100,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect('/category');
     }
 }

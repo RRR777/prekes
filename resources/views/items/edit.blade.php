@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Įveskite informaciją apie Prekę</span>
+                    <span class="h2">Prekės redagavimas</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                         type="button"
                         class="btn btn-info float-right">
@@ -24,9 +24,10 @@
                         @include('layouts.errors')
                         <form class="needs-validation"
                             novalidate
-                            action="{{ url('/items/{item}') }}"
+                            action="{{ url('/items', $item->id) }}"
                             method="post">
                             {{ csrf_field() }}
+                            {{ method_field('PUT') }}
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServer01">
@@ -36,7 +37,7 @@
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('name') }}"
+                                        value="{{ $item->name }}"
                                         name="name"
                                         id="validationServer01"
                                         placeholder="Įveskite prekės pavadinimą"
@@ -56,7 +57,7 @@
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('quantity') }}"
+                                        value="{{ $item->quantity }}"
                                         name="quantity"
                                         id="validationServer01"
                                         placeholder="Įveskite prekės kiekį"
@@ -76,7 +77,7 @@
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('price') }}"
+                                        value="{{ $item->price }}"
                                         name="price"
                                         id="validationServer01"
                                         placeholder="Įveskite prekės kainą"
@@ -89,20 +90,21 @@
 
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
-                                    <label for="validationServer02">Prekės kategorija:</label>
+                                    <label for="validationServer02">Prekės kategorija: </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
                                     <select class="form-control"
                                         value="{{ old('category') }}"
-                                        name="category"
+                                        name="category" 
                                         id="validationServer02"
                                         required>
-                                        <option value="">Pasirinkite kategoriją</option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">
-                                                {{ $category->name }}
-                                            </option>
-                                        @endforeach
+                                        <option value="">Pasirinkite prekės kategoriją</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}"
+                                                    {{ ( $category->id == $item->category_id ) ? 'selected' : '' }}>
+                                                    {{ $category->name }}
+                                                </option>
+                                            @endforeach
                                     </select>
                                     <div class="invalid-feedback">
                                         * Pasirinkite kategoriją!
@@ -119,10 +121,11 @@
                                 <div class="col-md-9 mb-9">
                                     <input type="text"
                                         class="form-control"
-                                        value="{{ old('description') }}"
+                                        value="{{ $item->description }}"
                                         name="description"
                                         id="validationServer01"
-                                        placeholder="Įveskite prekės aprašymą">
+                                        placeholder="Įveskite prekės aprašymą"
+                                        required>
                                     <div class="invalid-feedback">
                                         * Įveskite Prekės aprašymą!
                                     </div>

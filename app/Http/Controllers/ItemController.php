@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Item;
+use App\Category;
 
 class ItemController extends Controller
 {
@@ -13,7 +15,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
+        $items = Item::orderBy('name', 'asc')->get();
+        return view('items.index', compact('items'));
     }
 
     /**
@@ -23,7 +26,8 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('items.create', compact('categories'));
     }
 
     /**
@@ -34,7 +38,22 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric|min:1',
+            'category' => 'required',
+        ]);
+
+        $item = new Item;
+        $item->name = $request->input('name');
+        $item->quantity = $request->input('quantity');
+        $item->price = $request->input('price');
+        $item->category_id = $request->input('category');
+        $item->description = $request->input('description');
+        $item->save();
+
+        return redirect('/items');
     }
 
     /**
@@ -54,9 +73,12 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Item $item)
     {
-        //
+        $category = Category::where('id', $item->category_id)->get();
+        $categories = Category::orderBy('name', 'asc')->get();
+
+        return view('items.edit', compact('item', 'category', 'categories'));
     }
 
     /**
@@ -66,19 +88,41 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Item $item)
     {
-        //
+        $items = Item::orderBy('name', 'asc')->get();
+        
+        $this->validate($request, [
+            'name' => 'required',
+            'quantity' => 'required|numeric',
+            'price' => 'required|numeric|min:1',
+            'category' => 'required',
+        ]);
+
+        $item->name = $request->input('name');
+        $item->quantity = $request->input('quantity');
+        $item->price = $request->input('price');
+        $item->category_id = $request->input('category');
+        $item->description = $request->input('description');
+        $item->save();
+
+        return redirect('/items');
     }
 
+    public function delete(Item $item)
+    {
+        return view('items.destroy', compact('item'));
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Item $item)
     {
-        //
+        $item->delete();
+
+        return redirect('/items');
     }
 }
