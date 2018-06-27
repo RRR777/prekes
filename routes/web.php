@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/category', 'CategoryController@index');
+
+Route::get('/category/create', 'CategoryController@create');
+Route::post('/category/{category}', 'CategoryController@store');
+
+Route::get('/category/{category}', 'CategoryController@show');
+
