@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateItemRequest;
 use App\Item;
 use App\Category;
 
@@ -36,15 +37,8 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateItemRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'quantity' => 'required|numeric',
-            'price' => 'required|numeric|min:1',
-            'category' => 'required',
-        ]);
-
         $item = new Item;
         $item->name = $request->input('name');
         $item->quantity = $request->input('quantity');
@@ -88,16 +82,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Item $item)
+    public function update(CreateItemRequest $request, Item $item)
     {
         $items = Item::orderBy('name', 'asc')->get();
-        
-        $this->validate($request, [
-            'name' => 'required',
-            'quantity' => 'required|numeric',
-            'price' => 'required|numeric|min:1',
-            'category' => 'required',
-        ]);
 
         $item->name = $request->input('name');
         $item->quantity = $request->input('quantity');

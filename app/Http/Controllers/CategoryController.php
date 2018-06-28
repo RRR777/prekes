@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateCategoryRequest;
 use App\Category;
 
 class CategoryController extends Controller
@@ -34,12 +35,8 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:categories',
-        ]);
-
         $category = new Category;
         $category->name = $request->input('name');
         $category->save();
@@ -77,12 +74,8 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CreateCategoryRequest $request, Category $category)
     {
-        $this->validate($request, [
-            'name' => 'required|unique:categories',
-        ]);
-
         $category->name = $request->input('name');
         $category->save();
 

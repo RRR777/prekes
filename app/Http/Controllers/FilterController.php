@@ -27,7 +27,7 @@ class FilterController extends Controller
     public function report(Request $request)
     {
         $category = Category::where('id', request('category'))->first();
-        $items = Item::where('category_id', request('category'))->get();
+        $items = Item::where('category_id', request('category'))->orderBy('name', 'asc')->get();
 
         return view('filters.index', compact('items', 'category'));
     }

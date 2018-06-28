@@ -13,6 +13,7 @@
                         Pradinis
                     </button>
                     <br>
+                    <br>
                     <p class="h5">Kategorija: {{ $category->name }} </p>
                 </div>
                 <div class="card-body">
