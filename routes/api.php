@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('items/{item}', 'ItemController@show');
+
+Route::get('category/{category}', 'CategoryController@show');

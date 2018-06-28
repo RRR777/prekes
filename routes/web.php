@@ -14,7 +14,6 @@
 Route::get('/category', 'CategoryController@index');
 Route::get('/category/create', 'CategoryController@create');
 Route::post('/category/{category}', 'CategoryController@store');
-//Route::get('/category/{category}', 'CategoryController@show');
 Route::get('category/{category}/edit', 'CategoryController@edit');
 Route::put('category/{category}', 'CategoryController@update');
 Route::get('category/{category}/delete', 'CategoryController@delete');
@@ -23,7 +22,6 @@ Route::delete('category/{category}', 'CategoryController@destroy');
 Route::get('/items', 'ItemController@index');
 Route::get('/items/create', 'ItemController@create');
 Route::post('/items/{item}', 'ItemController@store');
-//Route::get('/items/{item}', 'ItemController@show');
 Route::get('items/{item}/edit', 'ItemController@edit');
 Route::put('items/{item}', 'ItemController@update');
 Route::get('items/{item}/delete', 'ItemController@delete');
