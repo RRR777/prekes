@@ -6,34 +6,21 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Prekių sąrašas</span>
-
+                    <span class="h2">Prekės priklausančios "{{ $category->name }}" kategorijai</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                         type="button"
-                        class="btn btn-info float-right btn-space">
+                        class="btn btn-info float-right">
                         Pradinis
                     </button>
-
-                    <button onclick='location.href="{{ url('/items/create') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Įvesti naują prekę
-                    </button>
-
-                    <button onclick='location.href="{{ url('/filters/create') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Prekės pagal kategoriją
-                    </button>
+                    <br>
+                    <p class="h5">Kategorija: {{ $category->name }} </p>
                 </div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-
                     <div class="container">
                         @include('layouts.errors')
                         <table class="table table-sm table-hover table-responsive">
@@ -73,7 +60,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

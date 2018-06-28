@@ -3,22 +3,10 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-12">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
                     <span class="h2">Ar tikrai norite ištrinti šią prekę?</span>
-
-                    <button onclick='location.href="{{ url('/items') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Pradinis
-                    </button>
-
-                    <button onclick='location.href="{{ url('/items/create') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Įvesti naują prekę
-                    </button>
                 </div>
 
                 <div class="card-body">

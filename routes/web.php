@@ -28,3 +28,6 @@ Route::get('items/{item}/edit', 'ItemController@edit');
 Route::put('items/{item}', 'ItemController@update');
 Route::get('items/{item}/delete', 'ItemController@delete');
 Route::delete('items/{item}', 'ItemController@destroy');
+
+Route::get('/filters/create', 'FilterController@create');
+Route::post('/filters', 'FilterController@report');
