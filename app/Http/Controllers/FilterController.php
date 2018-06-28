@@ -9,6 +9,17 @@ use App\Item;
 class FilterController extends Controller
 {
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('filters.create', compact('categories'));
+    }
+
+        /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -19,17 +30,6 @@ class FilterController extends Controller
         $items = Item::where('category_id', request('category'))->get();
 
         return view('filters.index', compact('items', 'category'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $categories = Category::orderBy('name', 'asc')->get();
-        return view('filters.create', compact('categories'));
     }
 
     /**
