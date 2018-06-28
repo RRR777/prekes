@@ -7,16 +7,6 @@
             <div class="card">
                 <div class="card-header">
                     <span class="h2">Ar tikrai norite ištrinti šią kategoriją?</span>
-                    <button onclick='location.href="{{ url('/category/create') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Pridėti naują kategoriją
-                    </button>
-                    <button onclick='location.href="{{ url('/items') }}"'
-                        type="button"
-                        class="btn btn-info float-right">
-                        Pradinis
-                    </button>
                 </div>
                 <div class="card-body">
                     @if (session('status'))

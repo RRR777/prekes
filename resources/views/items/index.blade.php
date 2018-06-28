@@ -8,12 +8,6 @@
                 <div class="card-header">
                     <span class="h2">Prekių sąrašas</span>
 
-                    <button onclick='location.href="{{ url('/items') }}"'
-                        type="button"
-                        class="btn btn-info float-right btn-space">
-                        Pradinis
-                    </button>
-
                     <button onclick='location.href="{{ url('/items/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">

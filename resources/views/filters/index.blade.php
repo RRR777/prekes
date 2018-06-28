@@ -42,7 +42,11 @@
                                 @foreach ($items as $item)
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
-                                        <td nowrap>{{ $item->name }}</td>
+                                        <td nowrap>
+                                            <a href = "/api/items/{{$item->id}}">
+                                                {{ $item->name }}
+                                            </a>
+                                        </td>
                                         <td nowrap>{{ $item->quantity }}</td>
                                         <td nowrap>{{ $item->price }}</td>
                                         <td nowrap>{{ $item->category->name }}</td>

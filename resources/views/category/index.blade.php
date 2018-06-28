@@ -15,7 +15,7 @@
                     <button onclick='location.href="{{ url('/category/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Pridėti naują kategoriją
+                        Įvesti naują kategoriją
                     </button>
 
                 </div>
