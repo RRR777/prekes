@@ -42,10 +42,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/items">Prekės</a>
+                        <a class="nav-link" href="{{ url('/items') }}">Prekės</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/category">Kategorijos</a>
+                        <a class="nav-link" href="{{ url('/category') }}">Kategorijos</a>
                     </li>
                 </ul>
             </div>

@@ -84,8 +84,6 @@ class ItemController extends Controller
      */
     public function update(CreateItemRequest $request, Item $item)
     {
-        $items = Item::orderBy('name', 'asc')->get();
-
         $item->name = $request->input('name');
         $item->quantity = $request->input('quantity');
         $item->price = $request->input('price');

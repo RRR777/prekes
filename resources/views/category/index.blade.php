@@ -42,12 +42,20 @@
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
                                         <td>
-                                            <a href = "/api/category/{{$category->id}}">
+                                            <a href ="{{ url('/api/category', $category->id) }}">
                                                 {{ $category->name }}
                                             </a>
                                         </td>
-                                        <td nowrap><a href = "{{ url('category', $category->id) . '/edit' }}">{{ __('Redaguoti') }}</a></td>
-                                        <td nowrap><a href = "{{ url('category', $category->id) .'/delete' }}">{{ __('Ištrinti') }}</a></td>
+                                        <td nowrap>
+                                            <a href = "{{ url('category', $category->id) . '/edit' }}">
+                                                {{ __('Redaguoti') }}
+                                            </a>
+                                        </td>
+                                        <td nowrap>
+                                            <a href = "{{ url('category', $category->id) .'/delete' }}">
+                                                {{ __('Ištrinti') }}
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

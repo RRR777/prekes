@@ -49,7 +49,7 @@
                                     <tr>
                                         <th scope="row">{{ $counter++ }}</th>
                                         <td nowrap>
-                                            <a href = "/api/items/{{$item->id}}">
+                                            <a href ="{{ url('/api/items', $item->id) }}">
                                                 {{ $item->name }}
                                             </a>
                                         </td>

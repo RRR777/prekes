@@ -28,7 +28,7 @@ class CreateCategoryRequest extends FormRequest
         ];
     }
 
-        public function messages()
+    public function messages()
     {
         return [
             'name.required' => 'Įveskite Prekės kategoriją.',
