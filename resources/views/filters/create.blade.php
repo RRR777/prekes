@@ -6,11 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Prekės pagal kategoriją</span>
+                    <span class="h2">{{ __('Prekės pagal kategoriją') }}</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                         type="button"
                         class="btn btn-info float-right">
-                        Pradinis
+                        {{ __('Pradinis') }}
                     </button>
                 </div>
                 <div class="card-body">
@@ -29,15 +29,15 @@
 
                             <div class="form-row">
                                 <div class="col-md-2 mb-3">
-                                    <label for="validationServer02">Kategorija:</label>
+                                    <label for="validationServer01">{{ __('Kategorija:') }}</label>
                                 </div>
                                 <div class="col-md-10 mb-9">
                                     <select class="form-control"
                                         value="{{ old('category') }}"
                                         name="category"
-                                        id="validationServer02"
+                                        id="validationServer01"
                                         required>
-                                        <option value="">Pasirinkite kategoriją</option>
+                                        <option value="">{{ __('Pasirinkite kategoriją') }}</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">
                                                 {{ $category->name }}
@@ -45,13 +45,13 @@
                                         @endforeach
                                     </select>
                                     <div class="invalid-feedback">
-                                        * Pasirinkite kategoriją!
+                                        {{ __('* Pasirinkite kategoriją!') }}
                                     </div>
                                 </div>
                             </div>
                             <button class="btn btn-info"
                                     type="submit">
-                                    Patvirtinti
+                                    {{ __('Patvirtinti') }}
                             </button>
                         </form>
                     </div>

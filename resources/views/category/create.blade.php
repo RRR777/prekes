@@ -6,11 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Įveskite Naują Kategoriją</span>
+                    <span class="h2">{{ __('Įveskite Naują Kategoriją') }}</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                             type="button"
                             class="btn btn-info float-right">
-                            Pradinis
+                            {{ __('Pradinis') }}
                     </button
                 </div>
                 <div class="card-body">
@@ -30,7 +30,7 @@
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServer01">
-                                        Kategorijos pavadinimas:
+                                        {{ __('Kategorijos pavadinimas:') }}
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
@@ -42,11 +42,11 @@
                                         placeholder="Įveskite kategorijos pavadinimą"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite kategorijos pavadinimą!
+                                        {{ __('* Įveskite kategorijos pavadinimą!') }}
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info ">Patvirtinti</button>
+                            <button type="submit" class="btn btn-info ">{{ __('Patvirtinti') }}</button>
                         </form>
                     </div>
                 </div>

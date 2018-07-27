@@ -3,21 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Prekių sąrašas</span>
+                    <span class="h2">{{ __('Prekių sąrašas') }}</span>
 
                     <button onclick='location.href="{{ url('/items/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Įvesti naują prekę
+                        {{ __('Įvesti naują prekę') }}
                     </button>
 
                     <button onclick='location.href="{{ url('/filters/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Prekės pagal kategoriją
+                        {{ __('Prekės pagal kategoriją') }}
                     </button>
                 </div>
 
@@ -33,14 +33,14 @@
                         <table class="table table-sm table-hover table-responsive">
                             <thead>
                                 <tr>
-                                    <th scope="col">Eil.Nr.</th>
-                                    <th scope="col">Pavadinimas</th>
-                                    <th scope="col">Kiekis</th>
-                                    <th scope="col">Kaina</th>
-                                    <th scope="col">Kategorija</th>
-                                    <th scope="col">Aprašymas</th>
-                                    <th scope="col">Redaguoti</th>
-                                    <th scope="col">Trinti</th>
+                                    <th scope="col">{{ __('Eil.Nr.') }}</th>
+                                    <th scope="col">{{ __('Pavadinimas') }}</th>
+                                    <th scope="col">{{ __('Kiekis') }}</th>
+                                    <th scope="col">{{ __('Kaina') }}</th>
+                                    <th scope="col">{{ __('Kategorija') }}</th>
+                                    <th scope="col">{{ __('Aprašymas') }}</th>
+                                    <th scope="col">{{ __('Redaguoti') }}</th>
+                                    <th scope="col">{{ __('Trinti') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

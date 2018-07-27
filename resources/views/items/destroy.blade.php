@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Ar tikrai norite ištrinti šią prekę?</span>
+                    <span class="h2">{{ __('Ar tikrai norite ištrinti šią prekę?') }}</span>
                 </div>
 
                 <div class="card-body">
@@ -24,12 +24,12 @@
                         <table class="table table-sm table-hover table-responsive">
                             <thead>
                                 <tr>
-                                    <th scope="col">Eil.Nr.</th>
-                                    <th scope="col">Pavadinimas</th>
-                                    <th scope="col">Kiekis</th>
-                                    <th scope="col">Kaina</th>
-                                    <th scope="col">Kategorija</th>
-                                    <th scope="col">Aprašymas</th>
+                                    <th scope="col">{{ __('Eil.Nr.') }}</th>
+                                    <th scope="col">{{ __('Pavadinimas') }}</th>
+                                    <th scope="col">{{ __('Kiekis') }}</th>
+                                    <th scope="col">{{ __('Kaina') }}</th>
+                                    <th scope="col">{{ __('Kategorija') }}</th>
+                                    <th scope="col">{{ __('Aprašymas') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,15 +40,15 @@
                                         <td nowrap>{{ $item->quantity }}</td>
                                         <td nowrap>{{ $item->price }}</td>
                                         <td nowrap>{{ $item->category->name }}</td>
-                                        <td nowrap>{{ $item->description }}</td>
+                                        <td>{{ $item->description }}</td>
                                     </tr>
                             </tbody>
                         </table>
-                        <button type="submit" class="btn btn-info">Ištrinti</button>
+                        <button type="submit" class="btn btn-info">{{ __('Ištrinti') }}</button>
                         <button onclick='location.href="{{ url('/items') }}"'
                             type="button"
                             class="btn btn-info">
-                            Atsisakyti
+                            {{ __('Atsisakyti') }}
                         </button>
                         </form>
                     </div>

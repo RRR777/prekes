@@ -6,11 +6,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Prekės redagavimas</span>
+                    <span class="h2">{{ __('Prekės redagavimas') }}</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                         type="button"
                         class="btn btn-info float-right">
-                        Pradinis
+                        {{ __('Pradinis') }}
                     </button>
                 </div>
                 <div class="card-body">
@@ -28,10 +28,11 @@
                             method="post">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
+
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
                                     <label for="validationServer01">
-                                        Prekės pavadinimas:
+                                        {{ __('Prekės pavadinimas:') }}
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
@@ -43,15 +44,15 @@
                                         placeholder="Įveskite prekės pavadinimą"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite Prekės pavadinimą!
+                                        {{ __('* Įveskite Prekės pavadinimą!') }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
-                                    <label for="validationServer01">
-                                        Prekės kiekis:
+                                    <label for="validationServer02">
+                                        {{ __('Prekės kiekis:') }}
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
@@ -59,19 +60,19 @@
                                         class="form-control"
                                         value="{{ $item->quantity }}"
                                         name="quantity"
-                                        id="validationServer01"
+                                        id="validationServer02"
                                         placeholder="Įveskite prekės kiekį"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite Prekės kiekį!
+                                        {{ __('* Įveskite Prekės kiekį!') }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
-                                    <label for="validationServer01">
-                                        Prekės kaina:
+                                    <label for="validationServer03">
+                                        {{ __('Prekės kaina:') }}
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
@@ -79,26 +80,26 @@
                                         class="form-control"
                                         value="{{ $item->price }}"
                                         name="price"
-                                        id="validationServer01"
+                                        id="validationServer03"
                                         placeholder="Įveskite prekės kainą"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite Prekės kainą!
+                                        {{ __('* Įveskite Prekės kainą!') }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
-                                    <label for="validationServer02">Prekės kategorija: </label>
+                                    <label for="validationServer04">{{ __('Prekės kategorija:') }}</label>
                                 </div>
                                 <div class="col-md-9 mb-9">
                                     <select class="form-control"
                                         value="{{ old('category') }}"
                                         name="category" 
-                                        id="validationServer02"
+                                        id="validationServer04"
                                         required>
-                                        <option value="">Pasirinkite prekės kategoriją</option>
+                                        <option value="">{{ __('Pasirinkite prekės kategoriją') }}</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}"
                                                     {{ ( $category->id == $item->category_id ) ? 'selected' : '' }}>
@@ -107,15 +108,15 @@
                                             @endforeach
                                     </select>
                                     <div class="invalid-feedback">
-                                        * Pasirinkite kategoriją!
+                                        {{ __('* Pasirinkite kategoriją!') }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-row">
                                 <div class="col-md-3 mb-3">
-                                    <label for="validationServer01">
-                                        Prekės aprašymas:
+                                    <label for="validationServer05">
+                                        {{ __('Prekės aprašymas:') }}
                                     </label>
                                 </div>
                                 <div class="col-md-9 mb-9">
@@ -123,15 +124,15 @@
                                         class="form-control"
                                         value="{{ $item->description }}"
                                         name="description"
-                                        id="validationServer01"
+                                        id="validationServer05"
                                         placeholder="Įveskite prekės aprašymą"
                                         required>
                                     <div class="invalid-feedback">
-                                        * Įveskite Prekės aprašymą!
+                                        {{ __('* Įveskite Prekės aprašymą!') }}
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-info">Patvirtinti</button>
+                            <button type="submit" class="btn btn-info">{{ __('Patvirtinti') }}</button>
                         </form>
                     </div>
                 </div>

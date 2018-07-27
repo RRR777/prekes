@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Ar tikrai norite ištrinti šią kategoriją?</span>
+                    <span class="h2">{{ __('Ar tikrai norite ištrinti šią kategoriją?') }}</span>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
@@ -22,8 +22,8 @@
                             <table class="table table-sm table-hover">
                                 <thead>
                                     <tr>
-                                      <th scope="col">Eil.Nr.</th>
-                                      <th scope="col">Kategorija</th>
+                                      <th scope="col">{{ __('Eil.Nr.') }}</th>
+                                      <th scope="col">{{ __('Kategorija') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,11 +34,11 @@
                                         </tr>
                                 </tbody>
                             </table>
-                            <button type="submit" class="btn btn-info">Ištrinti</button>
+                            <button type="submit" class="btn btn-info">{{ __('Ištrinti') }}</button>
                             <button onclick='location.href="{{ url('/category') }}"'
                                 type="button"
                                 class="btn btn-info">
-                                Atsisakyti
+                                {{ __('Atsisakyti') }}
                             </button>
                         </form>
                     </div>

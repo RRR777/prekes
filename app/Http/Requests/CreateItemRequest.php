@@ -28,6 +28,7 @@ class CreateItemRequest extends FormRequest
             'quantity' => 'required|numeric|min:0',
             'price' => 'required|min:1|regex:/^\d*(\.\d{2})?$/',
             'category' => 'required',
+            'description' => 'required'
         ];
     }
 
@@ -43,7 +44,8 @@ class CreateItemRequest extends FormRequest
             'price.min' => 'Prekės kaina negali būti mažiau už 1',
             'price.regex' => 'Prekės kaina turi būti įvesta skaičiumi.
                 Skaičiui po kablelio atskirti naudokite tašką',
-            'category.required' => 'Pasirinkite Prekės kategoriją.'
+            'category.required' => 'Pasirinkite Prekės kategoriją.',
+            'description.required' => 'Įveskite Prekės aprašymą.'
         ];
     }
 }

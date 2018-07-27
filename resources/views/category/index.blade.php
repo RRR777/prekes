@@ -6,16 +6,16 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="h2">Kategorijos</span>
+                    <span class="h2">{{ __('Kategorijos') }}</span>
                     <button onclick='location.href="{{ url('/items') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Pradinis
+                        {{ __('Pradinis') }}
                     </button>
                     <button onclick='location.href="{{ url('/category/create') }}"'
                         type="button"
                         class="btn btn-info float-right btn-space">
-                        Įvesti naują kategoriją
+                        {{ __('Įvesti naują kategoriją') }}
                     </button>
 
                 </div>
@@ -30,10 +30,10 @@
                         <table class="table table-sm table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Eil.Nr.</th>
-                                    <th scope="col">Kategorija</th>
-                                    <th scope="col">Redaguoti</th>
-                                    <th scope="col">Trinti</th>
+                                    <th scope="col">{{ __('Eil.Nr.') }}</th>
+                                    <th scope="col">{{ __('Kategorija') }}</th>
+                                    <th scope="col">{{ __('Redaguoti') }}</th>
+                                    <th scope="col">{{ __('Trinti') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
